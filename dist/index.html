@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Explore os 151 Pokémon originais, seus tipos, atributos e linhas evolutivas." />
+  <title>Pokédex de Kanto — 151 Pokémon</title>
+  <link rel="preconnect" href="https://assets.pokemon.com" />
+  <link rel="preconnect" href="https://pokeapi.co" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="Pokédex de Kanto">
+      <span class="brand-ball" aria-hidden="true"><i></i></span>
+      <span><strong>KANTO</strong><small>POKÉDEX 001—151</small></span>
+    </a>
+    <div class="caught-counter"><span id="caughtCount">0</span><small>favoritos</small></div>
+  </header>
+
+  <main id="top">
+    <section class="intro" aria-labelledby="page-title">
+      <div class="eyebrow"><span></span> ARQUIVO REGIONAL 01</div>
+      <h1 id="page-title">Os 151 que<br><em>começaram tudo.</em></h1>
+      <p>Pesquise, filtre e abra cada registro para conhecer atributos, habilidades e toda a linha evolutiva.</p>
+      <div class="region-stamp" aria-hidden="true"><b>KANTO</b><span>REGIÃO</span><small>GEN I</small></div>
+    </section>
+
+    <section class="controls" aria-label="Filtros da Pokédex">
+      <label class="search-wrap">
+        <span>⌕</span>
+        <input id="search" type="search" placeholder="Buscar por nome ou número…" autocomplete="off" />
+        <kbd>/</kbd>
+      </label>
+      <div class="select-row">
+        <label><span>TIPO</span><select id="typeFilter"><option value="all">Todos os tipos</option></select></label>
+        <label><span>ORDENAR</span><select id="sort"><option value="number">Número</option><option value="name">Nome A—Z</option><option value="name-desc">Nome Z—A</option></select></label>
+        <button id="favoritesBtn" class="favorites-btn" type="button" aria-pressed="false">☆ Só favoritos</button>
+      </div>
+    </section>
+
+    <section class="results-head">
+      <p><strong id="resultCount">151</strong> registros encontrados</p>
+      <div class="view-toggle" aria-label="Tamanho dos cartões">
+        <button type="button" class="active" data-view="grid" aria-label="Grade confortável">▦</button>
+        <button type="button" data-view="compact" aria-label="Grade compacta">▦</button>
+      </div>
+    </section>
+
+    <section id="pokedex" class="pokedex-grid" aria-live="polite"></section>
+    <div id="empty" class="empty" hidden><span>?</span><h2>Nenhum Pokémon encontrado</h2><p>Tente outro nome, número ou tipo.</p></div>
+  </main>
+
+  <footer><span>POKÉDEX DE KANTO</span><p>Imagens oficiais © Pokémon. Projeto não oficial feito para fãs.</p><a href="#top">Voltar ao topo ↑</a></footer>
+
+  <dialog id="detailDialog" class="detail-dialog">
+    <button class="close-dialog" type="button" aria-label="Fechar">×</button>
+    <div id="detailContent"></div>
+  </dialog>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
